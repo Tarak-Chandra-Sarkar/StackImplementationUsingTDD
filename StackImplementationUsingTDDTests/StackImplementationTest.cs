@@ -55,5 +55,26 @@ namespace StackImplementationUsingTDDTests
 
             Assert.Throws<ExpenditureProhibitedException>(() => stack.Pop());
         }
+
+        [Test]
+        public void Peek_Element()
+        {
+            StackImplementation<int> stack = new StackImplementation<int>(3);
+            stack.Push(1);
+            stack.Push(2);
+            stack.Push(3);
+            int val = stack.Peek();
+
+            Assert.AreEqual(3, val);
+            Assert.AreEqual(3, stack.Size);
+        }
+
+        [Test]
+        public void Exception_On_Peek()
+        {
+            StackImplementation<int> stack = new StackImplementation<int>(3);
+
+            Assert.Throws<ExpenditureProhibitedException>(() => stack.Peek());
+        }
     }
 }

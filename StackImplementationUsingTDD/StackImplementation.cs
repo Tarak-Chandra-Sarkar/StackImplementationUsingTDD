@@ -22,11 +22,21 @@
         #region Public Methods
         public void Push(T val)
         {
+            if (Size == maxLength)
+            {
+                throw new ExceededSizeException();
+            }
+
             stackArray[Size++] = val;
         }
 
         public T Pop()
         {
+            if (Size == 0)
+            {
+                throw new ExpenditureProhibitedException();
+            }
+
             return stackArray[--Size];
         }
         #endregion
